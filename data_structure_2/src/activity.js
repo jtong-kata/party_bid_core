@@ -45,7 +45,7 @@ Activity.prototype.check_bidding = function (phone) {
 };
 
 Activity.prototype.addBidding = function (price, phone) {
-    this.biddings[localStorage.current_bid].push({name: this.find_name(phone), phone: phone, price: price});
+    this.biddings[localStorage.current_bid].push({phone: phone, price: price});
     this.save();
 };
 
