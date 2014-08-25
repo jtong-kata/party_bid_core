@@ -7,7 +7,7 @@ describe("Activity", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should first activity was created on creating", function(){
         var activity_name = "first activity";
@@ -16,7 +16,7 @@ describe("Activity", function() {
         activity.create();
 
         var activities_json = JSON.parse(localStorage.activities);
-        var activity_ids = JSON.parse(localStorage.activity_ids)
+        var activity_ids = JSON.parse(localStorage.activity_ids);
         expect(activity_ids.length).toBe(1);
         expect(activities_json["0"].name).toBe(activity_name);
         expect(JSON.stringify(activities_json["0"].sign_ups)).toBe("[]");
