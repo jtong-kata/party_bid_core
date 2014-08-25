@@ -1,7 +1,7 @@
 function cope_sign_up(sms) {
-//    if(localStorage.is_signing_up != 'true') {
-//        return;
-//    }
+    if(localStorage.is_signing_up != 'true') {
+        return;
+    }
     var name = sms.messages[0].message.substr(2).trim();
     var phone = sms.messages[0].phone;
     if(SignUp.check(phone)) {
