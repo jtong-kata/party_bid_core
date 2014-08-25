@@ -4,9 +4,9 @@ function cope_sign_up(sms) {
 //    }
     var name = sms.messages[0].message.substr(2).trim();
     var phone = sms.messages[0].phone;
-//    if(activity.check_sigh_up(phone)) {
-//        return;
-//    }
+    if(SignUp.check(phone)) {
+        return;
+    }
     var signUp = new SignUp(name, phone);
     signUp.create();
 }
@@ -32,4 +32,8 @@ SignUp.all = function () {
         signUps = [];
     }
     return signUps;
+};
+
+SignUp.check = function (phone) {
+    return !!_(SignUp.all()).find({phone: phone});
 };
