@@ -30,5 +30,8 @@ function cope_bidding(sms) {
     if(!activity.check_sigh_up(phone)) {
         return;
     }
+    if(activity.check_bidding(phone)) {
+        return;
+    }
     activity.addBidding(price, phone);
 }

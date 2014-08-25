@@ -42,6 +42,10 @@ Activity.prototype.find_name = function (phone) {
     return (_(this.sign_ups).findWhere({phone: phone})).name;
 };
 
+Activity.prototype.check_bidding = function (phone) {
+    return !!(_(this.bids[this.bids.length - 1].biddings).findWhere({phone: phone}));
+};
+
 Activity.all = function () {
     return JSON.parse(localStorage.activities) || [];
 };
