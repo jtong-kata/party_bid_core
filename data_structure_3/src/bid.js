@@ -1,0 +1,3 @@
+function cope_bidding() {
+
+}

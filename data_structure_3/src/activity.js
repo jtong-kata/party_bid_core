@@ -21,3 +21,8 @@ Activity.all = function () {
     }
     return activities;
 };
+
+Activity.find_by_name = function (name) {
+    var activity = _(Activity.all()).find({name: name});
+    return new Activity(activity.name);
+};
