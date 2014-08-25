@@ -13,3 +13,7 @@ function transform_biddings_to_view_model (activity_name, bid_name) {
         })
         .value();
 }
+
+function render_sign_ups(activity_name) {
+    return Activity.find_by_name(activity_name).sign_ups;
+}
