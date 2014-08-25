@@ -12,10 +12,11 @@ Activity.prototype.create = function () {
     var ids = Activity.ids();
     var index = ids.length;
     activities[index] = this;
-    ids.push(index);
+    ids.push(index.toString());
     localStorage.activities = JSON.stringify(activities);
     localStorage.activity_ids = JSON.stringify(ids);
     localStorage.current_activity = index;
+    localStorage.activity_id_generator = index + 1;
 };
 
 Activity.all = function () {
