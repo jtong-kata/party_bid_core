@@ -33,6 +33,15 @@ Activity.prototype.check_sigh_up_repeat = function (phone) {
     return !!(_(this.sign_ups).findWhere({phone: phone}));
 };
 
+Activity.prototype.addBidding = function (price, phone) {
+    this.bids[this.bids.length - 1].biddings.push({name: this.find_name(phone), phone: phone, price: price});
+    this.save();
+};
+
+Activity.prototype.find_name = function (phone) {
+    return (_(this.sign_ups).findWhere({phone: phone})).name;
+};
+
 Activity.all = function () {
     return JSON.parse(localStorage.activities) || [];
 };
