@@ -10,7 +10,7 @@ describe("SignUp", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
 
     it("should one sms with signing up content sign up successfully when it is signing up", function(){
