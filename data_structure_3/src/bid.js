@@ -5,9 +5,9 @@ function cope_bidding(sms) {
     var price = sms.messages[0].message.substr(2);
     var phone = sms.messages[0].phone;
     var activity = Activity.find_by_id(localStorage.current_activity);
-//    if(!activity.check_sigh_up(phone)) {
-//        return;
-//    }
+    if(!SignUp.check(phone)) {
+        return;
+    }
 //    if(activity.check_bidding(phone)) {
 //        return;
 //    }
