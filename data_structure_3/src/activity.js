@@ -1,5 +1,6 @@
-function Activity (name) {
+function Activity (name, id) {
     this.name = name;
+    this.id = id;
 }
 
 Activity.prototype.create = function () {
@@ -22,7 +23,12 @@ Activity.all = function () {
     return activities;
 };
 
-Activity.find_by_name = function (name) {
-    var activity = _(Activity.all()).find({name: name});
-    return new Activity(activity.name);
+//Activity.find_by_name = function (name) {
+//    var activity = _(Activity.all()).find({name: name});
+//    return new Activity(activity.name);
+//};
+
+Activity.find_by_id = function (id) {
+    var activity = _(Activity.all()).find({id: id});
+    return new Activity(activity.name, activity.id);
 };

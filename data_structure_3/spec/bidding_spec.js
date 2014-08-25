@@ -13,12 +13,13 @@ describe("Bidding", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should bid successfully when it is bidding and user has signed up", function(){
         var phone_no = "13600000000";
         var sms_json = build_sms_json("JJ12", phone_no);
         localStorage.is_bidding = "true";
+        create_new_bid("0");
         notify_sms_received(sms_json);
 
         var bids = JSON.parse(localStorage.bids);
