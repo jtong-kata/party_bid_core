@@ -24,7 +24,8 @@ Activity.prototype.save = function () {
     var activities = Activity.all();
     var activity = _(activities).find({name: this.name});
     activity.sign_ups = this.sign_ups;
-    //activity.bids = this.bids;
+    activity.bids = this.bids;
+    activity.biddings = this.biddings;
     localStorage.activities = JSON.stringify(activities);
 };
 
@@ -40,7 +41,7 @@ Activity.prototype.addSignUp = function (name, phone) {
 };
 
 Activity.prototype.addBidding = function () {
-
+    this.biddings[this.bids[this.bids.length - 1]].push();
 };
 
 Activity.all = function () {
