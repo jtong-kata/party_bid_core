@@ -5,8 +5,8 @@ describe("SignUp Render", function() {
         init_activity_database();
         init_two_activity();
         init_sign_ups();
-        localStorage.activities = JSON.stringify(two_activities);
-        localStorage.activity_ids = JSON.stringify(activity_ids);
+//        localStorage.activities = JSON.stringify(two_activities);
+//        localStorage.activity_ids = JSON.stringify(activity_ids);
         localStorage.current_activity = "1";
     });
 

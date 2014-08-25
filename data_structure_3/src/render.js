@@ -17,3 +17,7 @@ function render_biddings (activity_id, bid) {
 
     return [_(result[0]).assign({name: SignUp.find_name(activity_id, result[0].phone)}).value()];
 }
+
+function render_sign_ups (activity_id) {
+    return _(SignUp.all()).where({activity_id: activity_id}).value();
+}
