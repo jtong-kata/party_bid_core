@@ -8,9 +8,9 @@ function cope_bidding(sms) {
     if(!SignUp.check(phone)) {
         return;
     }
-//    if(activity.check_bidding(phone)) {
-//        return;
-//    }
+    if(Bidding.check(phone)) {
+        return;
+    }
     var bidding = new Bidding(price, phone, SignUp.find_name(activity.id, phone));
     bidding.create();
 }
@@ -28,9 +28,16 @@ function Bidding (price, phone, name) {
 }
 
 Bidding.prototype.create = function () {
+    var activity_id = localStorage.current_activity;
     var bids = JSON.parse(localStorage.bids) || [];
-    var biddings = _(bids).find({name: localStorage.current_bid}).biddings;
-    this.activity_id = localStorage.current_activity;
+    var biddings = _(bids).find({name: localStorage.current_bid, activity_id: activity_id}).biddings;
     biddings.push(this);
     localStorage.bids = JSON.stringify(bids);
+};
+
+Bidding.check = function (phone) {
+    var activity_id = localStorage.current_activity;
+    var bids = JSON.parse(localStorage.bids) || [];
+    var biddings = _(bids).find({name: localStorage.current_bid, activity_id: activity_id}).biddings;
+    return !!_(biddings).find({phone: phone});
 };

@@ -9,7 +9,7 @@ describe("Bidding", function() {
         localStorage.current_activity = "1";
         localStorage.current_bid = "竞价1";
         localStorage.is_bidding = "";
-        create_new_bid("0");
+        create_new_bid("1");
     });
 
     afterEach(function(){
@@ -72,7 +72,7 @@ describe("Bidding", function() {
 
         var bids = JSON.parse(localStorage.bids);
         expect(bids[0].biddings.length).toBe(1);
-        expect(bids[0].biddings[0].name).toBe("仝键");
+        expect(bids[0].biddings[0].name).toBe("仝");
         expect(bids[0].biddings[0].phone).toBe(phone_no);
         expect(bids[0].biddings[0].price).toBe("12");
     });
