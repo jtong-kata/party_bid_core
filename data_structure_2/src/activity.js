@@ -16,7 +16,25 @@ Activity.prototype.create = function () {
     localStorage.activities = JSON.stringify(activities);
     localStorage.activity_ids = JSON.stringify(ids);
     localStorage.current_activity = index;
+    localStorage.current_activity_id = index;
     localStorage.activity_id_generator = index + 1;
+};
+
+Activity.prototype.save = function () {
+    var activities = Activity.all();
+    var activity = _(activities).find({name: this.name});
+    activity.sign_ups = this.sign_ups;
+    //activity.bids = this.bids;
+    localStorage.activities = JSON.stringify(activities);
+};
+
+Activity.prototype.addSignUp = function (name, phone) {
+    this.sign_ups.push({name: name, phone: phone});
+    this.save();
+};
+
+Activity.prototype.addBidding = function () {
+
 };
 
 Activity.all = function () {
@@ -25,4 +43,9 @@ Activity.all = function () {
 
 Activity.ids = function () {
     return JSON.parse(localStorage.getItem('activity_ids')) || [];
+};
+
+Activity.find_by_id = function (id) {
+    var activity = Activity.all()[id];
+    return new Activity(activity.name, activity.sign_ups, activity.bids);
 };
