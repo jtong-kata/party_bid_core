@@ -9,6 +9,7 @@ describe("Bidding", function() {
         localStorage.current_activity = "1";
         localStorage.current_bid = "竞价1";
         localStorage.is_bidding = "";
+        create_new_bid("0");
     });
 
     afterEach(function(){
@@ -19,7 +20,6 @@ describe("Bidding", function() {
         var phone_no = "13600000000";
         var sms_json = build_sms_json("JJ12", phone_no);
         localStorage.is_bidding = "true";
-        create_new_bid("0");
         notify_sms_received(sms_json);
 
         var bids = JSON.parse(localStorage.bids);
@@ -36,6 +36,7 @@ describe("Bidding", function() {
         localStorage.is_bidding = "false";
         notify_sms_received(sms_json);
 
+        var bids = JSON.parse(localStorage.bids);
         var activities = JSON.parse(localStorage.activities);
         expect(bids[0].biddings.length).toBe(0);
         // empty string

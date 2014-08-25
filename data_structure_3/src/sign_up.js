@@ -39,6 +39,5 @@ SignUp.check = function (phone) {
 };
 
 SignUp.find_name = function (activity, phone) {
-    console.log({activity_id: activity, phone: phone});
     return _(SignUp.all()).find({activity_id: activity, phone: phone}).name;
 };
