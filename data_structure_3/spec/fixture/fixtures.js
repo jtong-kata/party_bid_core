@@ -1,12 +1,12 @@
 function init_activity_database(){
     localStorage.activity_id_generator = "0";
     localStorage.current_activity = "";
-    localStorage.actity_ids = [];
+    localStorage.actity_ids = "[]";
     localStorage.activities = {};
 
     localStorage.sign_ups = "[]";
-    localStorage.bids = [];
-    localStorage.biddings = [];
+    localStorage.bids = "[]";
+    localStorage.biddings = "[]";
 }
 
 
