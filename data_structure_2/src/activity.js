@@ -40,8 +40,17 @@ Activity.prototype.addSignUp = function (name, phone) {
     this.save();
 };
 
-Activity.prototype.addBidding = function () {
-    this.biddings[this.bids[this.bids.length - 1]].push();
+Activity.prototype.check_bidding = function (phone) {
+    return !!(_(this.biddings[localStorage.current_bid]).findWhere({phone: phone}));
+};
+
+Activity.prototype.addBidding = function (price, phone) {
+    this.biddings[localStorage.current_bid].push({name: this.find_name(phone), phone: phone, price: price});
+    this.save();
+};
+
+Activity.prototype.find_name = function (phone) {
+    return (_(this.sign_ups).findWhere({phone: phone})).name;
 };
 
 Activity.all = function () {
@@ -54,5 +63,5 @@ Activity.ids = function () {
 
 Activity.find_by_id = function (id) {
     var activity = Activity.all()[id];
-    return new Activity(activity.name, activity.sign_ups, activity.bids);
+    return new Activity(activity.name, activity.sign_ups, activity.bids, activity.biddings);
 };

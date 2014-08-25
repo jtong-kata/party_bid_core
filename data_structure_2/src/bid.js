@@ -11,7 +11,7 @@ function cope_bidding(sms) {
     }
     var price = sms.messages[0].message.substr(2);
     var phone = sms.messages[0].phone;
-    var activity = Activity.find_by_name(localStorage.current_activity);
+    var activity = Activity.find_by_id(localStorage.current_activity_id);
     if(!activity.check_sigh_up(phone)) {
         return;
     }
