@@ -65,3 +65,10 @@ Activity.find_by_id = function (id) {
     var activity = Activity.all()[id];
     return new Activity(activity.name, activity.sign_ups, activity.bids, activity.biddings);
 };
+
+Activity.find_by_name = function (name) {
+    var activity = _(Activity.all()).find(function (item) {
+        return item.name == name;
+    });
+    return new Activity(activity.name, activity.sign_ups, activity.bids, activity.biddings);
+};

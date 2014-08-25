@@ -7,7 +7,6 @@ function transform_bids_to_view_model (activity_id) {
 
 function transform_biddings_to_view_model (activity_id, bid_name) {
     var biddings = Activity.find_by_id(activity_id).biddings[bid_name];
-    console.log(biddings);
     return _.chain(biddings)
         .groupBy(function (bidding) {
             return bidding.price;
@@ -19,4 +18,8 @@ function transform_biddings_to_view_model (activity_id, bid_name) {
             bidding.name = Activity.find_by_id(activity_id).find_name(bidding.phone);
         })
         .value();
+}
+
+function render_sign_ups(activity_name) {
+    return Activity.find_by_name(activity_name).sign_ups;
 }
