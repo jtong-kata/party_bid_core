@@ -29,7 +29,7 @@ Activity.prototype.addSignUp = function (name, phone) {
     this.save();
 };
 
-Activity.prototype.check_sigh_up_repeat = function (phone) {
+Activity.prototype.check_sigh_up = function (phone) {
     return !!(_(this.sign_ups).findWhere({phone: phone}));
 };
 

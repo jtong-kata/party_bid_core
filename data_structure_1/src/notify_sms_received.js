@@ -14,7 +14,7 @@ function cope_sign_up(sms) {
     var name = sms.messages[0].message.substr(2).trim();
     var phone = sms.messages[0].phone;
     var activity = Activity.find_by_name(localStorage.current_activity);
-    if(activity.check_sigh_up_repeat(phone)) {
+    if(activity.check_sigh_up(phone)) {
         return;
     }
     activity.addSignUp(name, phone);
@@ -27,5 +27,8 @@ function cope_bidding(sms) {
     var price = sms.messages[0].message.substr(2);
     var phone = sms.messages[0].phone;
     var activity = Activity.find_by_name(localStorage.current_activity);
+    if(!activity.check_sigh_up(phone)) {
+        return;
+    }
     activity.addBidding(price, phone);
 }
