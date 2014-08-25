@@ -28,6 +28,12 @@ Activity.prototype.save = function () {
     localStorage.activities = JSON.stringify(activities);
 };
 
+Activity.prototype.check_sigh_up = function (phone) {
+    return !!(_(this.sign_ups).find(function (item) {
+        return item.phone == phone;
+    }));
+};
+
 Activity.prototype.addSignUp = function (name, phone) {
     this.sign_ups.push({name: name, phone: phone});
     this.save();
