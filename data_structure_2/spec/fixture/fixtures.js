@@ -24,7 +24,7 @@ function init_two_activity() {
         sign_ups:[],
         bids:[],
         biddings:{}
-    }
+    };
     activities["0"] = activity_1;
     activities["1"] = activity_2;
     activity_ids.push("0","1");

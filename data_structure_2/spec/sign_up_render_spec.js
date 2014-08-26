@@ -31,7 +31,7 @@ describe("SignUp Render", function() {
                     biddings:{}
                 }
         };
-        var activity_ids = ["0", "1"]
+        var activity_ids = ["0", "1"];
         localStorage.activities = JSON.stringify(two_activities);
         localStorage.activity_ids = JSON.stringify(activity_ids);
         localStorage.current_activity = "1";
