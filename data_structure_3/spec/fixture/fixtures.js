@@ -56,6 +56,6 @@ function init_sign_ups(){
             phone:"13800000000",
             activity_id:"1"
         }
-    ]
+    ];
     localStorage.sign_ups = JSON.stringify(sign_ups);
 }
