@@ -7,7 +7,7 @@ describe("Activity", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should first activity was created on creating", function(){
         var activity_name = "first activity";

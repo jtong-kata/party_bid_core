@@ -18,7 +18,7 @@ describe("Bid", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should create new bid", function(){
         create_new_bid("first activity");

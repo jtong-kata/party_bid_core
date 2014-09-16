@@ -58,16 +58,16 @@ describe("Bids and Bidding Render", function() {
                 }
             }
         };
-        var activity_ids = ["0", "1"]
+        var activity_ids = ["0", "1"];
         localStorage.activities = JSON.stringify(two_activities);
         localStorage.activity_ids = JSON.stringify(activity_ids);
-        localStorage.current_activity = "1";
+        localStorage.current_activity_id = "1";
         localStorage.is_bidding = "";
     });
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should show all bids", function(){
         var bids = transform_bids_to_view_model("1");

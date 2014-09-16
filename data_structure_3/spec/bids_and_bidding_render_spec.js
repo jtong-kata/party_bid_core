@@ -66,7 +66,7 @@ describe("Bids and Bidding Render", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should show all bids", function(){
         var bids = render_bids("1");

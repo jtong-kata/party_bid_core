@@ -74,7 +74,7 @@ describe("Bids and Bidding Render", function() {
 
     afterEach(function(){
         localStorage.clear();
-    })
+    });
 
     it("should show all bids", function(){
         var bids = transform_bids_to_view_model("second activity");
